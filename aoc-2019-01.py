@@ -33,5 +33,6 @@ def computeFuelRequired(massList=data):
     return(fuelCalc)
 
 print(sum(computeFuelRequired()))
+#make this better from here: https://chriskiehl.com/article/parallelism-in-one-line
 
     
