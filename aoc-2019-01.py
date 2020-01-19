@@ -44,7 +44,10 @@ data = utils.read_input_data(script_name=__file__)
 
 print(sum(compute_fuel_required(massList = data)))
 #make this better from here: https://chriskiehl.com/article/parallelism-in-one-line
-print(sum(compute_fuel_required_complex(massList=data)))
+partTwo = sum(compute_fuel_required_complex(massList=data))
+print(partTwo)
+utils.in_lights(partTwo)
+
 #answers
 #Part 1: 3318195
 #Part 2: 4974428
