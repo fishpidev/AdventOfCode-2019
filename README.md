@@ -2,4 +2,9 @@
 First read me...practice for learning git
 
 further edits to practice git
-\n another edit for practice
+another edit for practice
+
+*Ideas to look at improving skills on*
+- pytest
+- cmd line running - with options on what part to solve.
+
