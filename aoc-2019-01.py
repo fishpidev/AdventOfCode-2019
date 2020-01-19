@@ -5,34 +5,46 @@ divide by three, round down, and subtract 2..."
 '''
 
 import math
+import utils_aoc_2019 as utils
 
 testData = [12, 14, 1969, 100756]
+testDataPartTwo = [(14, 2), (1969, 966), (100756, 50346)]
+testp2simple = [100756]
 
-#read the input file
+def calcualte_fuel_simple(mass):
+    return math.floor(mass / 3)-2
 
-def read_input_data(script_name=__file__, data_name_ext="-input.txt"):
+def calculate_fuel_complex(mass):
+    fuelFuel = []
+    while mass > 0:
+        inter_fuel = math.floor(mass / 3)-2
+        if inter_fuel > 0:
+            fuelFuel.append(inter_fuel)
+        mass = inter_fuel
+                
+    return fuelFuel
 
-    #construct the input data file name
-    fileNameIn = script_name[:-3] + data_name_ext
-    
-    with open(fileNameIn, "r") as f:
-        content = f.readlines()
-        
-    content = [x.strip() for x in content]#straight from SO, remove whitespace
-    content = [int(x) for x in content]#make the values integers
-    return(content)
-
-data = read_input_data()
-
-def computeFuelRequired(massList=data):
+def compute_fuel_required(massList=testData):
     fuelCalc = []
     for starMass in massList:
-        fuel = math.floor(starMass / 3) -2
+        fuel = calcualte_fuel_simple(starMass)
         fuelCalc.append(fuel)
         
     return(fuelCalc)
 
-print(sum(computeFuelRequired()))
-#make this better from here: https://chriskiehl.com/article/parallelism-in-one-line
-
+def compute_fuel_required_complex(massList=testp2simple):
+    fuelCalc = []
+    for starMass in massList:
+        fuel = calculate_fuel_complex(starMass)
+        fuelCalc.append(sum(fuel))
     
+    return fuelCalc
+
+data = utils.read_input_data(script_name=__file__)
+
+print(sum(compute_fuel_required(massList = data)))
+#make this better from here: https://chriskiehl.com/article/parallelism-in-one-line
+print(sum(compute_fuel_required_complex(massList=data)))
+#answers
+#Part 1: 3318195
+#Part 2: 4974428

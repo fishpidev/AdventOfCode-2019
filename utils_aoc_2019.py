@@ -22,14 +22,18 @@ def read_input_data(script_name, data_name_ext="-input.txt"):
     -------
     list
         the input data from a text file in a list format where each row is a line in the in put data
-    """   
-        
+    """           
     
     fileNameIn = script_name[:-3] + data_name_ext
     
-    with open(fileNameIn, "r") as f:
-        content = f.readlines()
+    try:
         
-    content = [x.strip() for x in content]#straight from SO, remove whitespace
-    content = [int(x) for x in content]#make the values integers
-    return(content)
+        with open(fileNameIn, "r") as f:
+            content = f.readlines()
+        
+        content = [x.strip() for x in content]#straight from SO, remove whitespace
+        content = [int(x) for x in content]#make the values integers
+        return(content)
+    except IOError:
+        print('input file not found')
+    
