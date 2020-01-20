@@ -7,9 +7,9 @@ divide by three, round down, and subtract 2..."
 import math
 import utils_aoc_2019 as utils
 
-testData = [12, 14, 1969, 100756]
-testDataPartTwo = [(14, 2), (1969, 966), (100756, 50346)]
-testp2simple = [100756]
+TESTDATA = [12, 14, 1969, 100756]
+TESTDATAPARTTWO = [(14, 2), (1969, 966), (100756, 50346)]
+TESTP2SIMPLE = [100756]
 
 def calcualte_fuel_simple(mass):
     return math.floor(mass / 3)-2
@@ -21,28 +21,25 @@ def calculate_fuel_complex(mass):
         if inter_fuel > 0:
             fuelFuel.append(inter_fuel)
         mass = inter_fuel
-                
     return fuelFuel
 
-def compute_fuel_required(massList=testData):
+def compute_fuel_required(massList=TESTDATA):
     fuelCalc = []
     for starMass in massList:
         fuel = calcualte_fuel_simple(starMass)
         fuelCalc.append(fuel)
-        
-    return(fuelCalc)
+    return fuelCalc
 
-def compute_fuel_required_complex(massList=testp2simple):
+def compute_fuel_required_complex(massList=TESTP2SIMPLE):
     fuelCalc = []
     for starMass in massList:
         fuel = calculate_fuel_complex(starMass)
         fuelCalc.append(sum(fuel))
-    
     return fuelCalc
 
 data = utils.read_input_data(script_name=__file__)
 
-print(sum(compute_fuel_required(massList = data)))
+print(sum(compute_fuel_required(massList=data)))
 #make this better from here: https://chriskiehl.com/article/parallelism-in-one-line
 partTwo = sum(compute_fuel_required_complex(massList=data))
 print(partTwo)
