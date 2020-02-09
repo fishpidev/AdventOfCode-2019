@@ -42,8 +42,13 @@ data = utils.read_input_data(script_name=__file__)
 print(sum(compute_fuel_required(massList=data)))
 #make this better from here: https://chriskiehl.com/article/parallelism-in-one-line
 partTwo = sum(compute_fuel_required_complex(massList=data))
-print(partTwo)
-utils.in_lights(partTwo)
+
+try:
+    utils.in_lights(partTwo)
+except NameError:
+    #not sure this is the best way to do this...
+    print("No ScrollPhatHD lib installed - printing answer to std out")
+    print(partTwo)
 
 #answers
 #Part 1: 3318195
