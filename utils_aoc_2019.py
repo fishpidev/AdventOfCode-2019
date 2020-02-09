@@ -2,10 +2,17 @@
 Advent of code 2019 common utility functions
 
 '''
-
-import scrollphathd as sphd
+import sys
 import time
 from time import sleep
+
+try:
+    import scrollphathd as sphd
+except ImportError:
+    print(sys.exc_info())
+    print("INFO: looks like you don't have the ScrollPhatHD lib installed...maybe you're not on a RaspberryPi? \n")
+    
+
 
 def read_input_data(script_name, data_name_ext="-input.txt"):
     """
