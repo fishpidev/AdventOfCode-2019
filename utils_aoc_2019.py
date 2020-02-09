@@ -45,7 +45,8 @@ def read_input_data(script_name, data_name_ext="-input.txt"):
         content = [int(x) for x in content]#make the values integers
         return(content)
     except IOError:
-        print('input file not found')
+        print('ERROR: input file not found.')
+        sys.exit()
         
         
 def in_lights(input_value='Nothing to see here', scroll_time=10):

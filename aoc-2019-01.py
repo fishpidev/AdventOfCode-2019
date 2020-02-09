@@ -5,6 +5,7 @@ divide by three, round down, and subtract 2..."
 '''
 
 import math
+import sys
 import utils_aoc_2019 as utils
 
 TESTDATA = [12, 14, 1969, 100756]
