@@ -14,7 +14,7 @@ except ImportError:
     
 
 
-def read_input_data(script_name, data_name_ext="-input.txt"):
+def read_input_data(script_name, data_name_ext="_input.txt"):
     """
     Locate and read the correct input data for the Advent Of Code 2019 script being run.
     
@@ -26,7 +26,7 @@ def read_input_data(script_name, data_name_ext="-input.txt"):
     arg1 : str
         the name of the calling script
     arg2 : str
-        the extension to the file name being used, '-input.txt' is default'    
+        the addition to the file name being used, '_input.txt' is default'    
     
     Returns
     -------
