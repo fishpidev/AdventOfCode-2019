@@ -18,7 +18,7 @@ def read_input_data(script_name, data_name_ext="-input.txt"):
     """
     Locate and read the correct input data for the Advent Of Code 2019 script being run.
     
-    The input data is named the saem of the script calling this function but with
+    The input data is named the same of the script calling this function but with
     '-input' appended to the file name.
     
     Parameters
@@ -33,7 +33,7 @@ def read_input_data(script_name, data_name_ext="-input.txt"):
     list
         the input data from a text file in a list format where each row is a line in the in put data
     """           
-    
+
     fileNameIn = script_name[:-3] + data_name_ext
     
     try:
