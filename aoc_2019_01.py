@@ -3,19 +3,16 @@ Advent of Code Day 1
 Puzzle summary: "...to find the fuel required for a module, take its mass,
 divide by three, round down, and subtract 2..."
 '''
+from typing import Iterable
 
 import math
 import sys
 import utils_aoc_2019 as utils
 
-TESTDATA = [12, 14, 1969, 100756]
-TESTDATAPARTTWO = [(14, 2), (1969, 966), (100756, 50346)]
-TESTP2SIMPLE = [100756]
-
-def calcualte_fuel_simple(mass):
+def calcualte_fuel_simple(mass: int) -> int:
     return math.floor(mass / 3)-2
 
-def calculate_fuel_complex(mass):
+def calculate_fuel_complex(mass: int) -> Iterable[int]:
     fuelFuel = []
     while mass > 0:
         inter_fuel = math.floor(mass / 3)-2
@@ -24,14 +21,14 @@ def calculate_fuel_complex(mass):
         mass = inter_fuel
     return fuelFuel
 
-def compute_fuel_required(massList=TESTDATA):
+def compute_fuel_required(massList: Iterable[int]) -> Iterable[int]:
     fuelCalc = []
     for starMass in massList:
         fuel = calcualte_fuel_simple(starMass)
         fuelCalc.append(fuel)
     return fuelCalc
 
-def compute_fuel_required_complex(massList=TESTP2SIMPLE):
+def compute_fuel_required_complex(massList :Iterable[int]) -> Iterable[int]:
     fuelCalc = []
     for starMass in massList:
         fuel = calculate_fuel_complex(starMass)
@@ -47,8 +44,7 @@ partTwo = sum(compute_fuel_required_complex(massList=data))
 try:
     utils.in_lights(partTwo)
 except NameError:
-    #not sure this is the best way to do this...
-    print("No ScrollPhatHD lib installed - printing answer to std out")
+    #not sure this is the best way to do this, just printing out the answer
     print(partTwo)
 
 #answers

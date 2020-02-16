@@ -2,9 +2,14 @@
 Test for Advent of code 2019 common utility functions
 
 '''
-from utils_aoc_2019 import read_input_data
+from aoc_2019_01 import calcualte_fuel_simple
 import pytest
 
-def test_input_params_type_string():
-    with pytest.raises(TypeError):
-        read_input_data("string in")
+@pytest.mark.parametrize("in_mass, out_fuel", [
+        (12, 2),
+        (14, 2),
+        (1969, 654),
+        (100756, 33583)
+        ])
+def test_simple_fuel_calc(in_mass, out_fuel):
+    assert calcualte_fuel_simple(in_mass) == out_fuel
