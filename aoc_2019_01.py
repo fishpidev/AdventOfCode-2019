@@ -1,15 +1,12 @@
 '''
 Advent of Code Day 1
-Puzzle summary: "...to find the fuel required for a module, take its mass,
-divide by three, round down, and subtract 2..."
 '''
 from typing import Iterable
 
 import math
-import sys
 import utils_aoc_2019 as utils
 
-def calcualte_fuel_simple(mass: int) -> int:
+def calculate_fuel_simple(mass: int) -> int:
     return math.floor(mass / 3)-2
 
 def calculate_fuel_complex(mass: int) -> Iterable[int]:
@@ -24,7 +21,7 @@ def calculate_fuel_complex(mass: int) -> Iterable[int]:
 def compute_fuel_required(massList: Iterable[int]) -> Iterable[int]:
     fuelCalc = []
     for starMass in massList:
-        fuel = calcualte_fuel_simple(starMass)
+        fuel = calculate_fuel_simple(starMass)
         fuelCalc.append(fuel)
     return fuelCalc
 
