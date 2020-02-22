@@ -51,6 +51,38 @@ def read_input_data(script_name, data_name_ext="_input.txt"):
         print('ERROR: input file not found.')
         sys.exit()
         
+def read_input_incode(script_name, data_name_ext="_input.txt"):
+    """
+    Locate and read the correct *Incode* data for the Advent Of Code 2019 script being run.
+    
+    The input data is named the same of the script calling this function but with
+    '-input' appended to the file name.
+    
+    Parameters
+    ----------
+    script_name : str
+        the name of the calling script
+    data_name_ext : str
+        the addition to the file name being used, '_input.txt' is default'    
+    
+    Returns
+    -------
+    list
+    the input data from a text file in a list format where each item is a 
+    Incode value from the in put data
+    """
+    fileNameIn = script_name[:-3] + data_name_ext
+    
+    try:
+        
+        with open(fileNameIn, "r") as f:
+            content = f.readlines()
+        content = content[0].split(',')
+        content = [int(x) for x in content]#make the values integers
+        return(content)
+    except IOError:
+        print('ERROR: input file not found.')
+        sys.exit()
         
 def in_lights(input_value='Nothing to see here', scroll_time=10):
     
