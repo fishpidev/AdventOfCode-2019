@@ -10,7 +10,10 @@ try:
     import scrollphathd as sphd
 except ImportError:
     print(sys.exc_info())
-    print("INFO: looks like you don't have the ScrollPhatHD lib installed...maybe you're not on a RaspberryPi? \n")
+    print(
+        '''INFO: looks like you don't have the ScrollPhatHD lib installed...\n
+        maybe you're not on a RaspberryPi? \n
+        Lets carry on''')
     
 
 
