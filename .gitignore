@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # my input flies for AOC 2019
-*-input.txt
+*_input.txt
 
 # C extensions
 *.so
