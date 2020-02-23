@@ -51,7 +51,7 @@ def read_input_data(script_name, data_name_ext="_input.txt"):
         print('ERROR: input file not found.')
         sys.exit()
         
-def read_input_incode(script_name, data_name_ext="_input.txt"):
+def read_input_incode(script_name, data_name_ext="_input.txt", use_test_data=False):
     """
     Locate and read the correct *Incode* data for the Advent Of Code 2019 script being run.
     
@@ -63,7 +63,9 @@ def read_input_incode(script_name, data_name_ext="_input.txt"):
     script_name : str
         the name of the calling script
     data_name_ext : str
-        the addition to the file name being used, '_input.txt' is default'    
+        the addition to the file name being used, '_input.txt' is default'  
+    use_test_data : bool
+        some test data to aid development. default to False
     
     Returns
     -------
@@ -71,6 +73,12 @@ def read_input_incode(script_name, data_name_ext="_input.txt"):
     the input data from a text file in a list format where each item is a 
     Incode value from the in put data
     """
+    if use_test_data:
+        content = '1,9,10,3,2,3,11,0,99,30,40,50'
+        content = content.split(',')
+        content = [int(x) for x in content]
+        return content
+    
     fileNameIn = script_name[:-3] + data_name_ext
     
     try:
