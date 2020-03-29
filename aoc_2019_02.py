@@ -40,9 +40,3 @@ day_one = execute_intcode_programme(intcode_program)
 print("full output:", day_one)
 print("Position 0:", day_one[0])
 
-#day_two_a_in = make_replacements(intcode_program, first_replace, second_replace)
-#print(day_two_a_in)
-
-#someting wrong here. try using a whil loop and not i,v for loop iteration 
-#day_two_a = execute_intcode_programme(intcode_program)
-#print(day_two_a)
